@@ -150,7 +150,7 @@ def strategy(y_test_result):
 
 def main():
     # import data
-    data = pd.read_csv('/model/data/data.csv', header=0, index_col=0)
+    data = pd.read_csv('./data/data.csv', header=0, index_col=0)
     data['month'] = pd.to_datetime(data['month'])
 
     # preprocessing for the entire data set

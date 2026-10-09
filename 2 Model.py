@@ -232,14 +232,14 @@ def strategy(y_test_result):
     short_val += 1
     short_val = short_val.cumprod()
     # market
-    market = pd.read_csv('result/market_ret_mon.csv',
+    market = pd.read_csv('./result/market_ret_mon.csv',
                          index_col=None, header=0)
     market_val = market.groupby('month').mean()
     market_val += 1
     market_val = market_val.cumprod()
     market_val = pd.Series(market_val['market'])
     # risk—free
-    risk_free = pd.read_csv('data/risk_free_rate.csv', index_col=None,
+    risk_free = pd.read_csv('./data/risk_free_rate.csv', index_col=None,
                             header=0)
     risk_free_val = risk_free[['month', 'risk_free']]
     risk_free_val['risk_free'] /= 100
@@ -281,7 +281,7 @@ def visualization(data):
     y4 = data['short']
     plt.figure(figsize=(20, 8))
     plt.plot(x, y1, linestyle='-', color='black', label='Long Portfolio, Final Value is 57.66 Yuan')
-    plt.plot(x, y2, linestyle='--', color='black', label='Market Portfolio，Final Value is 1.66 Yuan')
+    plt.plot(x, y2, linestyle='--', color='black', label='Market Portfolio, Final Value is 1.66 Yuan')
     plt.plot(x, y3, linestyle=':', color='black', label='Risk-free Rate, Final Value is 1.07 Yuan')
     plt.plot(x, y4, linestyle='-.', color='black', label='Short Portfolio, Final Value is 0.41 Yuan')
     plt.xlabel('Date', fontsize=14)
@@ -306,7 +306,7 @@ def main():
     strategy(y_test_result)
 
     # result visualization
-    vs_data = pd.read_csv('/Users/xuchuyu/PycharmProjects/Thesis/result/all_val.csv', header=0, index_col=0)
+    vs_data = pd.read_csv(output_url + 'all_val.csv', header=0, index_col=0)
     visualization(vs_data)
 
 

@@ -39,7 +39,7 @@ pd_sum = pd.DataFrame({'R_14': R_14,
 
 pd_sum.to_csv('./result/partial_derivative.csv')
 
-data = pd.read_csv('/result/pd_imp.csv', index_col=0, header=0)
+data = pd.read_csv('./result/pd_imp.csv', index_col=0, header=0)
 
 x = data.index
 y1 = data['R_9']
